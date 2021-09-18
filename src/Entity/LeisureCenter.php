@@ -55,6 +55,11 @@ class LeisureCenter
      */
     private $leisureCategory;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $link;
+
     public function __construct()
     {
         $this->leisureCategory = new ArrayCollection();
@@ -122,6 +127,18 @@ class LeisureCenter
     public function removeLeisureCategory(LeisureCategory $leisureCategory): self
     {
         $this->leisureCategory->removeElement($leisureCategory);
+
+        return $this;
+    }
+
+    public function getLink(): ?string
+    {
+        return $this->link;
+    }
+
+    public function setLink(?string $link): self
+    {
+        $this->link = $link;
 
         return $this;
     }
