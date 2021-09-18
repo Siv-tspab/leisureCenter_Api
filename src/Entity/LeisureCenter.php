@@ -2,6 +2,9 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use App\Repository\LeisureCenterRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -10,6 +13,19 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=LeisureCenterRepository::class)
  */
+#[ApiResource(
+    itemOperations: [
+        'get',
+        'patch',
+        'delete'
+    ],
+    collectionOperations: [
+        'get',
+        'post'
+    ]
+), ApiFilter(
+    SearchFilter::class, properties: ['leisureCategory.id' => 'exact', 'name' => 'partial', 'description' => 'partial']
+)]
 class LeisureCenter
 {
     /**
@@ -109,5 +125,4 @@ class LeisureCenter
 
         return $this;
     }
-
 }

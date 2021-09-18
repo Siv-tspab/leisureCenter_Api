@@ -11,7 +11,11 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=LeisureCategoryRepository::class)
  */
-#[ApiResource()]
+#[ApiResource(
+    paginationEnabled: false,
+    collectionOperations: ['get'],
+    itemOperations: []
+)]
 class LeisureCategory
 {
     /**
