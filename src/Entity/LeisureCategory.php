@@ -14,7 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ApiResource(
     paginationEnabled: false,
     collectionOperations: ['get'],
-    itemOperations: []
+    itemOperations: ['get']
 )]
 class LeisureCategory
 {
