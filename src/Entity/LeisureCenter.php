@@ -28,7 +28,9 @@ use Symfony\Component\Serializer\Annotation\Groups;
         'delete'
     ],
     collectionOperations: [
-        'get',
+        'get' => [
+            'controller' => LeisureCenterController::class
+        ],
         'post'
     ]
 ), ApiFilter(
