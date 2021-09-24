@@ -16,25 +16,44 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @ORM\Entity(repositoryClass=LeisureCenterRepository::class)
  */
 #[ApiResource(
-    normalizationContext:[
+    normalizationContext: [
         'groups' => ['read:leisureCenter']
     ],
-    denormalizationContext:[
+    denormalizationContext: [
         'groups' => ['write:leisureCenter']
     ],
     itemOperations: [
-        'get',
-        'patch',
-        'delete'
+        'get' => [
+            'controller' => LeisureCenterController::class
+        ],
+        'patch' => [
+            'openapi_context' => [
+                'security' => [['bearerAuth' => []]]
+            ],
+            "security" => 'is_granted("ROLE_USER")'
+        ],
+        'delete' => [
+            'openapi_context' => [
+                'security' => [['bearerAuth' => []]]
+            ],
+            "security" => 'is_granted("ROLE_USER")'
+        ],
     ],
     collectionOperations: [
         'get' => [
             'controller' => LeisureCenterController::class
         ],
-        'post'
+        'post' => [
+            'openapi_context' => [
+                'security' => [['bearerAuth' => []]]
+            ],
+            "security" => 'is_granted("ROLE_USER")'
+        ],
     ]
+
 ), ApiFilter(
-    SearchFilter::class, properties: ['leisureCategory.id' => 'exact', 'name' => 'partial', 'description' => 'partial']
+    SearchFilter::class,
+    properties: ['leisureCategory.id' => 'exact', 'name' => 'partial', 'description' => 'partial']
 )]
 class LeisureCenter
 {
