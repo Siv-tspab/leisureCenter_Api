@@ -42,7 +42,7 @@ class LeisureCenterController extends AbstractController
      */
     private function getCoordinates(string $address): array
     {
-        $apikey = "pk.eyJ1Ijoic2l2dnYiLCJhIjoiY2t0eGdoeDdyMGduczJ1cWhjaGVoZjZ2dCJ9.I1vrVy2ceNAfpCpzoBG8jQ";
+        $apikey = $_SERVER["MB_API_KEY"];
         return $this->apiGet(
             'https://api.mapbox.com/geocoding/v5/mapbox.places/' . urlencode($address) . '.json?access_token=' . $apikey
         )->features[0]->geometry->coordinates;
@@ -56,7 +56,7 @@ class LeisureCenterController extends AbstractController
      */
     private function getWeather(array $coordinates): object
     {
-        $apikey = "0e077eb2226c0ed601048dc512fe27f8";
+        $apikey = $_SERVER["OWM_API_KEY"];
         return $this->apiGet(
             'https://api.openweathermap.org/data/2.5/weather?lat=' . $coordinates[1] . '&lon=' . $coordinates[0] . '&appid=' . $apikey
         );
