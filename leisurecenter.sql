@@ -41,11 +41,11 @@ INSERT INTO `leisure_category` (`id`, `name`) VALUES
 (2, 'Canoë'),
 (3, 'Wakeboard'),
 (4, 'Accrobranche'),
-(5, 'Escalade');
-(6, 'VTT');
-(7, 'Via Ferrata');
-(8, 'Randonnée');
-(9, 'Battle Tag');
+(5, 'Escalade'),
+(6, 'VTT'),
+(7, 'Via Ferrata'),
+(8, 'Randonnée'),
+(9, 'Battle Tag'),
 (10, 'Surf');
 
 -- --------------------------------------------------------
@@ -72,9 +72,9 @@ INSERT INTO `leisure_center` (`id`, `name`, `description`, `address`, `link`, `a
 (2, 'WAM PARK - Toulouse - Sesquières', 'Une base de loisirs nouvelle génération : grand et petit téléski, terrasse, water games et bien plus!', 'Allée des foulques 31200 Toulouse', 'http://www.wampark.fr/', NULL),
 (3, 'Canoë Kayak Toulousain', "Le CKT est une association dont l'activité principale est l'enseignement du Canoë-Kayak. Les adhérents disposent de cours réguliers pour acquérir les techniques dans différentes formes de pratique.", '16 chemin de la Loge 31400 Toulouse', 'http://www.cktoulousain.fr/', NULL),
 (4, 'Biarritz Surf Training', 'Situé à Biarritz au Pays basque, à 300 m de la plage à pied, le surf camp de Surftraining est une école de surf ouverte à tous quelque soit votre niveau, débutant ou confirmé.', 'Plage de la cote des basques Boulevard du prince de Galles 64200 Biarritz', 'http://www.surftraining.com/', NULL),
-(5, 'VTT Pyrénées Plaisir', "Encadrement VTT dans les Pyrénées Française et Espagnole: stage pilotage VTT tous niveaux, Stage VTT Enduro Navette, Raids All Mountain, Préparation suspension terrain. Nous gérons toute la logistique, vous n'avez qu'à profiter.", '3 lotissement peruilhet 64570 Issor', 'http://pyreneesplaisir.com/', NULL);
+(5, 'VTT Pyrénées Plaisir', "Encadrement VTT dans les Pyrénées Française et Espagnole: stage pilotage VTT tous niveaux, Stage VTT Enduro Navette, Raids All Mountain, Préparation suspension terrain. Nous gérons toute la logistique, vous n'avez qu'à profiter.", '3 lotissement peruilhet 64570 Issor', 'http://pyreneesplaisir.com/', NULL),
 (6, "Block'Out Toulouse", "Salle d'escalade de bloc et restaurant ouverts 7 jours sur 7 à Toulouse dans le Languedoc-Roussillon-Midi-Pyrénées, avec salle de musculation, sauna et hammam.", "2 rue de l'Égalité 31200 Toulouse", 'https://www.blockout.fr/bo-toulouse', NULL),
-(7, "Auterive Adventures", "Implanté sur un site de 9 hectares sur les deux berges de l'Ariège, ce parc d'aventures est ouvert 'tous les week-ends' et 'tous les jours' pendant toutes les vacances scolaires... Il vous donnera des 'sensations fortes' dans ses parcours très variés dont certains 'très engageants'..", "auterive 31190", 'https://www.auterive-adventures.com/', NULL),
+(7, "Auterive Adventures", "Implanté sur un site de 9 hectares sur les deux berges de l'Ariège, ce parc d'aventures est ouvert 'tous les week-ends' et 'tous les jours' pendant toutes les vacances scolaires... Il vous donnera des 'sensations fortes' dans ses parcours très variés dont certains 'très engageants'..", "auterive 31190", 'https://www.auterive-adventures.com/', NULL);
 
 -- --------------------------------------------------------
 
@@ -96,8 +96,8 @@ INSERT INTO `leisure_center_leisure_category` (`leisure_center_id`, `leisure_cat
 (2, 3),
 (3, 2),
 (4, 10),
-(5, 6);
-(6, 5);
+(5, 6),
+(6, 5),
 (7, 4);
 
 -- --------------------------------------------------------
@@ -123,12 +123,6 @@ INSERT INTO `user` (`id`, `email`, `roles`, `password`) VALUES
 --
 -- Index pour les tables déchargées
 --
-
---
--- Index pour la table `doctrine_migration_versions`
---
-ALTER TABLE `doctrine_migration_versions`
-  ADD PRIMARY KEY (`version`);
 
 --
 -- Index pour la table `leisure_category`
