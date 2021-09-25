@@ -17,7 +17,15 @@ use Symfony\Component\Serializer\Annotation\Groups;
  */
 #[ApiResource(
     normalizationContext: [
-        'groups' => ['read:leisureCenter']
+        'groups' => ['read:leisureCenter'],
+        'openapi_context' => [
+            'properties' => [
+                'additionnalInfos' => [
+                    'readonly' => true,
+                    "type" => "json"
+                ]
+            ]
+        ]
     ],
     denormalizationContext: [
         'groups' => ['write:leisureCenter']
@@ -94,6 +102,12 @@ class LeisureCenter
      */
     #[Groups(['read:leisureCenter', 'write:leisureCenter'])]
     private $link;
+
+    /**
+     * @ORM\Column(type="json", nullable=true)
+     */
+    #[Groups(['read:leisureCenter'])]
+    private $additionnalInfos = [];
 
     public function __construct()
     {
@@ -174,6 +188,18 @@ class LeisureCenter
     public function setLink(?string $link): self
     {
         $this->link = $link;
+
+        return $this;
+    }
+
+    public function getAdditionnalInfos(): ?array
+    {
+        return $this->additionnalInfos;
+    }
+
+    public function setAdditionnalInfos(?array $additionnalInfos): self
+    {
+        $this->additionnalInfos = $additionnalInfos;
 
         return $this;
     }

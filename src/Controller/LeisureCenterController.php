@@ -17,21 +17,19 @@ class LeisureCenterController extends AbstractController
         $leisureCenters = $this->leisureCenterRepository->findAll();
         
         // Reach the current coord and weather for each center
-        $centersData = [];
         foreach ($leisureCenters as $center) {
             $address = $center->getAddress();
             $coord = $this->getCoordinates($address);
             $weather = $this->getWeather($coord);
-            $centerData['id'] = $center->getId();
             $centerData['coordinates'] = $coord;
             $centerData['weather'] = [
                 "icon" => $weather->weather[0]->icon,
                 "temp" => $weather->main->temp
             ];
-            $centersData[] = $centerData;
+            $center->setAdditionnalInfos($centerData);
         }
-        
-        return [$leisureCenters, $centersData];
+
+        return $leisureCenters;
     }
 
 
