@@ -2,8 +2,12 @@
 
 namespace App\Controller;
 
+use Doctrine\ORM\Tools\Pagination\Paginator as DoctrinePaginator;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Paginator;
+use App\Entity\LeisureCenter;
 use App\Repository\LeisureCenterRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class LeisureCenterController extends AbstractController
@@ -12,12 +16,24 @@ class LeisureCenterController extends AbstractController
     {
     }
 
-    public function __invoke()
+    public function __invoke(Request $request)
     {
+        // Get the query paramerters about pagination
+        $maxResults = $request->attributes->get('data')->getQuery()->getMaxResults();
+        $page = $request->query->get('page', 1);
+        $firstResult = ($page - 1) * $maxResults;
+        
+        // Getting data and sorting with pagination infos
         $leisureCenters = $this->leisureCenterRepository->findAll();
+        $paginedResult = [];
+        for ($i = $firstResult; ($i < $firstResult + $maxResults) && $i < count($leisureCenters); $i++) {
+            if ($leisureCenters[$i]) {
+                $paginedResult[] = $leisureCenters[$i];
+            }
+        }
         
         // Reach the current coord and weather for each center
-        foreach ($leisureCenters as $center) {
+        foreach ($paginedResult as $center) {
             $address = $center->getAddress();
             $coord = $this->getCoordinates($address);
             $weather = $this->getWeather($coord);
@@ -29,7 +45,7 @@ class LeisureCenterController extends AbstractController
             $center->setAdditionnalInfos($centerData);
         }
 
-        return $leisureCenters;
+        return $paginedResult;
     }
 
 
