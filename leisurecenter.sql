@@ -74,7 +74,17 @@ INSERT INTO `leisure_center` (`id`, `name`, `description`, `address`, `link`, `a
 (4, 'Biarritz Surf Training', 'Situé à Biarritz au Pays basque, à 300 m de la plage à pied, le surf camp de Surftraining est une école de surf ouverte à tous quelque soit votre niveau, débutant ou confirmé.', 'Plage de la cote des basques Boulevard du prince de Galles 64200 Biarritz', 'http://www.surftraining.com/', NULL),
 (5, 'VTT Pyrénées Plaisir', "Encadrement VTT dans les Pyrénées Française et Espagnole: stage pilotage VTT tous niveaux, Stage VTT Enduro Navette, Raids All Mountain, Préparation suspension terrain. Nous gérons toute la logistique, vous n'avez qu'à profiter.", '3 lotissement peruilhet 64570 Issor', 'http://pyreneesplaisir.com/', NULL),
 (6, "Block'Out Toulouse", "Salle d'escalade de bloc et restaurant ouverts 7 jours sur 7 à Toulouse dans le Languedoc-Roussillon-Midi-Pyrénées, avec salle de musculation, sauna et hammam.", "2 rue de l'Égalité 31200 Toulouse", 'https://www.blockout.fr/bo-toulouse', NULL),
-(7, "Auterive Adventures", "Implanté sur un site de 9 hectares sur les deux berges de l'Ariège, ce parc d'aventures est ouvert 'tous les week-ends' et 'tous les jours' pendant toutes les vacances scolaires... Il vous donnera des 'sensations fortes' dans ses parcours très variés dont certains 'très engageants'..", "auterive 31190", 'https://www.auterive-adventures.com/', NULL);
+(7, "Lorem ipdolor", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, maxime soluta cupiditate qui voluptas sint, odio, aut nam consequatur modi magnam repellendus.", "Bordeaux", 'https://www.google.com', NULL),
+(8, "Dignissimos fugit", " Dignissimos fugit similique nemo aliquid perferendis eius ipsa, sit architecto iusto nesciunt eligendi qui blanditiis odit deleniti praesentium!", "Nantes", 'https://www.google.com', NULL),
+(9, "Lorem ipsum dol", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, maxime soluta cupiditate qui voluptas sint, odio, aut nam consequatur modi magnam repellendus.", "Marseille", 'https://www.google.com', NULL),
+(10, "Beatae, maxime", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, maxime soluta cupiditate qui voluptas sint, odio, aut nam consequatur modi magnam repellendus.", "Colmar", 'https://www.google.com', NULL),
+(11, "Lorem", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, maxime soluta  Dignissimos fugit similique nemo aliquid perferendis eius ipsa, sit architecto iusto nesciunt deleniti praesentium! repellendus.", "Tour", 'https://www.google.com', NULL),
+(12, "Aliquid perferendis", "Aliquid perferendis eius ipsa, sit . Beatae, maxime soluta Dignissimos fugit similique nemo architecto maxime soluta sint, odio, aut.", "Albi", 'https://www.google.com', NULL),
+(13, "Lorem ipsum dolor", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, maxime soluta cupiditate qui voluptas sint, odio, aut nam consequatur modi magnam repellendus.", "Lyon", 'https://www.google.com', NULL),
+(14, "Lelit. Beatae", "Lelit. Beatae, adipisicing elit maxime soluta cupiditate amet consectetur  qui voluptas sint, odio, aut nam consequatur modi magnam repellendus consequatur modi consequatur modi consequatur modi .", "Clermont-Ferrand", 'https://www.google.com', NULL),
+(15, "Lorem ipsum ", "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, maxime soluta cupiditate qui voluptas sint, odio, aut nam consequatur modi magnam repellendus.", "Montpellier", 'https://www.google.com', NULL),
+(16, "Lorem ipsum dolor", "Lelit. Beatae, adipisicing elit maxime soluta cupiditate amet consectetur  qui voluptas sint, odio, aut nam consequatur modi magnamtur modi magnam repellendus.", "Tarbes", 'https://www.google.com', NULL),
+(17, "Auterive Adventures", "Implanté sur un site de 9 hectares sur les deux berges de l'Ariège, ce parc d'aventures est ouvert 'tous les week-ends' et 'tous les jours' pendant toutes les vacances scolaires... Il vous donnera des 'sensations fortes' dans ses parcours très variés dont certains 'très engageants'..", "auterive 31190", 'https://www.auterive-adventures.com/', NULL);
 
 -- --------------------------------------------------------
 
@@ -98,7 +108,17 @@ INSERT INTO `leisure_center_leisure_category` (`leisure_center_id`, `leisure_cat
 (4, 10),
 (5, 6),
 (6, 5),
-(7, 4);
+(7, 8),
+(8, 4),
+(9, 3),
+(10, 10),
+(11, 9),
+(12, 3),
+(13, 1),
+(14, 5),
+(15, 1),
+(16, 7),
+(17, 4);
 
 -- --------------------------------------------------------
 
